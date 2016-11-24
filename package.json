@@ -1,0 +1,26 @@
+{
+  "name": "mahjong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "ejs": "^2.5.2",
+    "koa": "^1.2.4",
+    "koa-ejs": "^3.0.0",
+    "koa-router": "^5.4.0",
+    "koa-views": "^4.1.0",
+    "socket.io": "^1.6.0",
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.9.1",
+    "eslint-config-standard": "^6.1.0",
+    "eslint-plugin-html": "^1.5.5",
+    "eslint-plugin-promise": "^3.0.1",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
