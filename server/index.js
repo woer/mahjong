@@ -2,17 +2,24 @@
   var router = require('koa-router')()
   var views = require('koa-views')
   var path = require('path')
+  var koaBody = require('koa-body')
   var pageRouteMap = require('./routers/pageCtl.js')
   var interfaceRouteMap = require('./routers/interfaceCtl.js')
-  // http://taobaofed.org/blog/2016/03/18/error-handling-in-koa/
-  // app.use(error info)
-  // 错误处理在最上面 -->待完善
+  var errorHandle = require('./common/errorHandle/errorMiddleware.js')
+  app.use(errorHandle)
+  app.use(koaBody({
+      formidable: {
+          uploadDir: __dirname
+      }
+  }))
   app.use(views(path.resolve('server/views'), {
-      map: {html: 'ejs'}
+      map: {
+          html: 'ejs'
+      }
   }))
   interfaceRouteMap(router)
   pageRouteMap(router)
-  // 使用路由
+      // 使用路由
   app.use(router.routes())
   app.listen(1337)
   console.info('Now running on localhost:1337')
